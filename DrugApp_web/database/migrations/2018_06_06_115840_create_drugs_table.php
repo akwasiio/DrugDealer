@@ -15,13 +15,13 @@ class CreateDrugsTable extends Migration
     {
         Schema::create('drugs', function (Blueprint $table) {
             $table->increments('id');
-            $this->string('name');
-            $this->string('company name');
-            $this->string('email');
-            $this->string('phone');
-            $this->string('dosage');
-            $this->string('description');
-            $this->string('side effects');
+            $table->string('name');
+            $table->string('company name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('dosage');
+            $table->string('description');
+            $table->string('side effects');
             $table->timestamps();
         });
     }
