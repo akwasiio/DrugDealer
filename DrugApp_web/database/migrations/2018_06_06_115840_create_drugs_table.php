@@ -16,13 +16,14 @@ class CreateDrugsTable extends Migration
         Schema::create('drugs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('company name');
+            $table->string('company_name');
             $table->string('email');
             $table->string('phone');
             $table->string('dosage');
             $table->string('description');
-            $table->string('side effects');
+            $table->string('side_effects');
             $table->timestamps();
+            
         });
     }
 

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','DrugsController@home');
 
 Route::get('/register','DrugsController@add');
-Route::post('/register','DrugsController@register');
+Route::post('/register','DrugsController@register')->name("registerRoute");
 
 Route::get('/list','DrugsController@list');
 
