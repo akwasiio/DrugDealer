@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', ['uses' => 'DrugsController@home']);
+use Illuminate\Support\Facades\Route;
+
+Route::get('/','DrugsController@home');
+
+Route::get('/register','DrugsController@add');
+Route::post('/register','DrugsController@register');
+
+Route::get('/list','DrugsController@list');
 
 
-#return view('welcome');
