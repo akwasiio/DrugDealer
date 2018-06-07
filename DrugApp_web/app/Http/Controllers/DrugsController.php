@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\drugs;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class DrugsController extends Controller
 {
@@ -23,7 +25,10 @@ class DrugsController extends Controller
         $drug->save();
 
         #todo: QR code generation.
-        return redirect('/');
+
+        QrCode::generate($drug->id, '../public/QrCodes/_'.$drug->name.'.svg');
+
+        return redirect('/list');
     }
 
     public function list(){
