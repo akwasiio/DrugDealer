@@ -10,7 +10,7 @@
 
             <!--name-->
             <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -25,7 +25,7 @@
 
             <!--company name-->
             <div class="form-group row">
-                <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('company name') }}</label>
+                <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('company name : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control{{ $errors->has('company_name') ? ' is-invalid' : '' }}" name="company_name" value="{{ old('name') }}" required autofocus>
@@ -40,7 +40,7 @@
 
             <!--email-->
             <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
+                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="name" value="{{ old('email') }}" required autofocus>
@@ -55,7 +55,7 @@
 
             <!--phone-->
             <div class="form-group row">
-                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone') }}</label>
+                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
@@ -70,7 +70,7 @@
 
             <!--dosage-->
             <div class="form-group row">
-                <label for="dosage" class="col-md-4 col-form-label text-md-right">{{ __('dosage') }}</label>
+                <label for="dosage" class="col-md-4 col-form-label text-md-right">{{ __('dosage : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control{{ $errors->has('dosage') ? ' is-invalid' : '' }}" name="name" value="{{ old('dosage') }}" required autofocus>
@@ -85,7 +85,7 @@
 
             <!--description-->
             <div class="form-group row">
-                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description : ') }}</label>
 
                 <div class="col-md-6">
                     <textarea type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('name') }}" required autofocus></textarea>
@@ -100,7 +100,7 @@
 
             <!--side effect-->
             <div class="form-group row">
-                <label for="side_effect" class="col-md-4 col-form-label text-md-right">{{ __('side_effect') }}</label>
+                <label for="side_effect" class="col-md-4 col-form-label text-md-right">{{ __('side_effect : ') }}</label>
 
                 <div class="col-md-6">
                     <textarea type="text" class="form-control{{ $errors->has('side_effect') ? ' is-invalid' : '' }}" name="side_effect" value="{{ old('side_effect') }}" required autofocus></textarea>
@@ -114,9 +114,14 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Add Task</button>
+                <div class="col-sm-offset-2 col-sm-10">
+
+                <button type="submit" class="btn btn-primary">Add Drug</button>
+
+                </div>
             </div>
             {{ csrf_field() }}
+
         </form>
 
 
