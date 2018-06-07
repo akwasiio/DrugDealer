@@ -5,7 +5,7 @@
 
     @php
         use App\drugs;
-        $drugs = App\drugs::all();
+        $drugs = drugs::all();
     @endphp
 
     <div class="container">
@@ -17,20 +17,30 @@
                     <th colspan="2">Drugs</th>
                 </tr>
                 </thead>
-                <tbody>@foreach($drugs as $drug)
+                <tbody>@foreach($drugs = App\drugs::all() as $drug)
                     <tr>
                         <td>
                             {{$drug->name}}
                         </td>
                         <td>
+                            {{$drug->company_name}}
+                        </td>
+                        <td>
+                            {{$drug->email}}
+                        </td>
+                        <td>
+                            {{$drug->phone}}
+                        </td>
+                        <td>
                             {{$drug->dosage}}
                         </td>
                         <td>
-                            {{$task->effects}}
+                            {{$drug->description}}
                         </td>
                         <td>
-                            {{$task->phone}}
+                            {{$drug->side_effects}}
                         </td>
+
                     </tr>
 
 

@@ -20,8 +20,9 @@ class DrugsController extends Controller
         $drug->dosage = $request->dosage;
         $drug->description = $request->description;
         $drug->side_effects = $request->side_effects;
+        $drug->save();
 
-        #todo: QR coe generation.
+        #todo: QR code generation.
         return redirect('/');
     }
 
