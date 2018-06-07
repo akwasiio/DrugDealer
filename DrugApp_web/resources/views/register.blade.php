@@ -10,8 +10,7 @@
 
             <!--name-->
             <div class="form-group row">
-                <label for="name"
-                       class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text"
@@ -29,8 +28,7 @@
 
             <!--company name-->
             <div class="form-group row">
-                <label for="company_name"
-                       class="col-md-4 col-form-label text-md-right">{{ __('company name') }}</label>
+                <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('company name : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text"
@@ -48,8 +46,7 @@
 
             <!--email-->
             <div class="form-group row">
-                <label for="email"
-                       class="col-md-4 col-form-label text-md-right">{{ __('email') }}</label>
+                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('email : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text"
@@ -67,8 +64,7 @@
 
             <!--phone-->
             <div class="form-group row">
-                <label for="phone"
-                       class="col-md-4 col-form-label text-md-right">{{ __('phone') }}</label>
+                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text"
@@ -86,8 +82,7 @@
 
             <!--dosage-->
             <div class="form-group row">
-                <label for="dosage"
-                       class="col-md-4 col-form-label text-md-right">{{ __('dosage') }}</label>
+                <label for="dosage" class="col-md-4 col-form-label text-md-right">{{ __('dosage : ') }}</label>
 
                 <div class="col-md-6">
                     <input type="text"
@@ -105,8 +100,7 @@
 
             <!--description-->
             <div class="form-group row">
-                <label for="description"
-                       class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description : ') }}</label>
 
                 <div class="col-md-6">
                     <textarea type="text"
@@ -124,8 +118,7 @@
 
             <!--side effect-->
             <div class="form-group row">
-                <label for="side_effects"
-                       class="col-md-4 col-form-label text-md-right">{{ __('side_effects') }}</label>
+                <label for="side_effect" class="col-md-4 col-form-label text-md-right">{{ __('side_effect : ') }}</label>
 
                 <div class="col-md-6">
                     <textarea type="text"
@@ -142,7 +135,11 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Add Task</button>
+                <div class="col-sm-offset-2 col-sm-10">
+
+                <button type="submit" class="btn btn-primary">Add Drug</button>
+
+                </div>
             </div>
             {{ csrf_field() }}
         </form>
@@ -151,4 +148,3 @@
     </div>
 
 @endsection
-

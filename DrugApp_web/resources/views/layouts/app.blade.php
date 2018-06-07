@@ -17,15 +17,24 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
+    <!-- Icon -->
+    <link rel="icon" href="{!! asset('images/gcm_ico.ico') !!}"/>
+
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Drug Dealer
+                    <span class="glyphicon glyphicon-grain"></span> Drug Dealer
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,11 +48,13 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto navbar-right">
                         <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">
-                                Register
+                               Register
                             </a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('/list')}}"> View </a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('/list')}}">
+                                 View
+                            </a></li>
                     </ul>
                 </div>
             </div>
@@ -53,5 +64,11 @@
             @yield('content')
         </main>
     </div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
