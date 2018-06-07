@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
-
+@section('title')
 
 @section('content')
 
+    <div style="text-align: center;  ">
 
-    <div class="flex-center position-ref full-height">
-
-        <div class="content">
-            <div class="title m-b-md">
-                Laravel
-            </div>
+        <div style="font-size: 100px; padding-top: 50px;">
+            <span class="glyphicon glyphicon-grain"> </span> Drug Dealer.
         </div>
 
     </div>
