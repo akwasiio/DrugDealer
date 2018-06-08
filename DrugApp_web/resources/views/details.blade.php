@@ -14,7 +14,7 @@
                 <li class="list-group-item">{{$drug->company_name}}</li>
                 <li class="list-group-item">{{$drug->email}}</li>
                 <li class="list-group-item">{{$drug->phone}}</li>
-                <li class="list-group-item">{{$drug->dossage}}</li>
+                <li class="list-group-item">{{$drug->dosage}}</li>
                 <li class="list-group-item">{{$drug->description}}</li>
                 <li class="list-group-item">{{$drug->side_effects}}</li>
             </ul>
