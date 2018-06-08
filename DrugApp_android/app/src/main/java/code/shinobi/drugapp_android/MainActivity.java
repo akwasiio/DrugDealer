@@ -1,5 +1,6 @@
 package code.shinobi.drugapp_android;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -31,6 +33,14 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import code.shinobi.drugapp_android.camera.ui.CameraSource;
 import code.shinobi.drugapp_android.camera.ui.CameraSourcePreview;
 import code.shinobi.drugapp_android.camera.ui.GraphicOverlay;
+import code.shinobi.drugapp_android.model.DrugDetailsModel;
+import code.shinobi.drugapp_android.model.ResponseBody;
+import code.shinobi.drugapp_android.rest.ApiClient;
+import code.shinobi.drugapp_android.rest.ApiInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
@@ -345,15 +355,46 @@ public class MainActivity extends AppCompatActivity implements BarcodeGraphicTra
         }
 
         if (best != null) {
-//            Intent data = new Intent();
-//            data.putExtra(BarcodeObject, best);
-//            setResult(CommonStatusCodes.SUCCESS, data);
-//            finish();
-            Intent intent = new Intent(this, DrugDetailsActivity.class);
-            intent.putExtra("Id Value", best.rawValue);
-            startActivity(intent);
+
+//            Log.e(TAG, "onTap: About to show progress " + best.rawValue  );
+
+            final ProgressDialog progressBar = new ProgressDialog(this);
+            progressBar.setMessage("Please wait");
+            progressBar.setCancelable(false);
+            progressBar.show();
+
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            Call<ResponseBody> call = apiService.getDrugDetails(best.rawValue);
+
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                    progressBar.dismiss();
+                    if(response.body().getMessage().equals("Success"))
+                    {
+                        DrugDetailsModel model = response.body().getResult();
+                        Intent intent = new Intent(MainActivity.this, DrugDetailsActivity.class);
+                        intent.putExtra("Details Array", model);
+                        startActivity(intent);
+                        return;
+                    }
+
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    progressBar.dismiss();
+                    Log.e(TAG, "onFailure: " + t.getMessage() );
+                }
+            });
+
+
+
 //            Toast.makeText(this, best.displayValue, Toast.LENGTH_LONG).show();
-            return true;
+//            return true;
         }
         return false;
     }
