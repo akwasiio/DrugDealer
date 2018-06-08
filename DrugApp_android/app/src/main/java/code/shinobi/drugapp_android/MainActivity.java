@@ -23,13 +23,11 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.CommonStatusCodes;
+
 import code.shinobi.drugapp_android.camera.ui.CameraSource;
 import code.shinobi.drugapp_android.camera.ui.CameraSourcePreview;
 import code.shinobi.drugapp_android.camera.ui.GraphicOverlay;
@@ -66,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements BarcodeGraphicTra
 
     @Override
     public void onBarcodeDetected(Barcode barcode) {
+
 
     }
 
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements BarcodeGraphicTra
      */
     @SuppressLint("InlinedApi")
     private void createCameraSource() {
-        Boolean autoFocus = false;
+        Boolean autoFocus = true;
         Boolean useFlash = false;
         Context context = getApplicationContext();
 
@@ -346,10 +345,14 @@ public class MainActivity extends AppCompatActivity implements BarcodeGraphicTra
         }
 
         if (best != null) {
-            Intent data = new Intent();
-            data.putExtra(BarcodeObject, best);
-            setResult(CommonStatusCodes.SUCCESS, data);
-            finish();
+//            Intent data = new Intent();
+//            data.putExtra(BarcodeObject, best);
+//            setResult(CommonStatusCodes.SUCCESS, data);
+//            finish();
+            Intent intent = new Intent(this, DrugDetailsActivity.class);
+            intent.putExtra("Id Value", best.rawValue);
+            startActivity(intent);
+//            Toast.makeText(this, best.displayValue, Toast.LENGTH_LONG).show();
             return true;
         }
         return false;

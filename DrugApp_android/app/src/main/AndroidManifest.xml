@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Detail_Of_Drugs"></activity>
+        <activity android:name=".DrugDetailsActivity"></activity>
     </application>
 
 </manifest>
