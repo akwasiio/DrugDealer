@@ -19,5 +19,8 @@ Route::get('/register','DrugsController@add');
 Route::post('/register','DrugsController@register')->name("registerRoute");
 
 Route::get('/list','DrugsController@list');
+Route::get('/api/{id}','DrugsController@api');
+
+Route::get('/details/{id}', 'DrugsController@details');
 
 

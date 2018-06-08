@@ -22,14 +22,35 @@ class DrugsController extends Controller
         $drug->dosage = $request->dosage;
         $drug->description = $request->description;
         $drug->side_effects = $request->side_effects;
+        $drug->QR_name = '_'.$drug->name.'.png';
         $drug->save();
 
         #todo: QR code generation.
 
-        QrCode::generate($drug->id, '../public/QrCodes/_'.$drug->name.'.svg');
+        QrCode::format('png')->size(400)->generate($drug->id, '../public/QrCodes/'.$drug->QR_name);
 
         return redirect('/list');
     }
+
+    public function api(Request $request){
+        $id = $request->id;
+        $drug = drugs::find($id);
+        if ($drug) {
+            return array("drug_request" => $drug, "message" => "Success");
+        }
+        else{
+            return array("drug_request" => $drug, "message" => "Failure");
+        }
+
+    }
+
+    public function details(Request $request){
+        $id = $request->id;
+        $drug = drugs::find($id);
+
+        return view('details',compact('drug'));
+    }
+
 
     public function list(){
         return view('list');
@@ -38,4 +59,5 @@ class DrugsController extends Controller
     public function home(){
         return view('home') ;
     }
+
 }
