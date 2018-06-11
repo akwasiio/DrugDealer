@@ -85,10 +85,11 @@
                 <label for="dosage" class="col-md-4 col-form-label text-md-right">{{ __('dosage : ') }}</label>
 
                 <div class="col-md-6">
-                    <input type="text"
+                    <textarea type="text"
                            class="form-control{{ $errors->has('dosage') ? ' is-invalid' : '' }}"
                            name="dosage"
                            value="{{ old('dosage') }}" required autofocus>
+                    </textarea>
 
                     @if ($errors->has('dosage'))
                         <span class="invalid-feedback">
@@ -137,7 +138,11 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
 
-                <button type="submit" class="btn btn-primary">Add Drug</button>
+                <button type="submit"
+                        class="btn btn-primary">
+                    Add Drug
+                </button>
+
 
                 </div>
             </div>

@@ -22,6 +22,7 @@ class CreateDrugsTable extends Migration
             $table->string('dosage');
             $table->string('description');
             $table->string('side_effects');
+            $table->string('QR_name');
             $table->timestamps();
             
         });
